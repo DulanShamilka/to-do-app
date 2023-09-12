@@ -47,6 +47,15 @@ listContainer.addEventListener("click", function (e) {
     }
   }, false);
 
+  listContainer.addEventListener("click",function(e){
+    if(e.target.tagName === "PIN" && !(e.target.classList.contains("pinned"))){
+        const li = e.target.parentElement;
+        listContainer.appendChild(li);
+        saveData();
+    }
+        
+  },false);
+
 function saveData(){
     localStorage.setItem("data", listContainer.innerHTML);
 }
